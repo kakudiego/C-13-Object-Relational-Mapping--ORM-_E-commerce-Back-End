@@ -20,6 +20,31 @@ Product.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
+    price: {
+      type: DataTypes.DECIMAL(10, 2),
+      allowNull: false,
+      // validate that the value is a decimal number
+      validate: {
+        isDecimal: true,
+      },
+    },
+    stock: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      // set a default value of 10
+      defaultValue: 10,
+      // validate that the value is an numeric
+      validate: {
+        isNumeric: true,
+      },
+    },
+    category_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'category',
+        key: 'id',
+      },
+    },
   },
   {
     sequelize,
@@ -31,3 +56,5 @@ Product.init(
 );
 
 module.exports = Product;
+
+// done
