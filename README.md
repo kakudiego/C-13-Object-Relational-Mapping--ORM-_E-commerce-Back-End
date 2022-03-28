@@ -53,7 +53,11 @@ If you have any questions, contact me at diegokaku@gmail.com.
 ## Walkthrough video
 
 The following images/video demonstrates the application functionality.
+https://drive.google.com/file/d/1M28pr3SWp_CjJGLdcS1PcnYTNThyBT2M/view
 
-#### ScreenShot:
+#### Seed and Running:
+![seed-and-running](https://user-images.githubusercontent.com/94471049/160326191-ecca8015-6cfe-4bef-ac53-f0cb65cbd0e7.png)
 
-#### ScreenShot:
+
+#### Database seeded:
+![database-seeded](https://user-images.githubusercontent.com/94471049/160326226-55351170-5ef4-4352-9ef9-06f46cf36660.png)
