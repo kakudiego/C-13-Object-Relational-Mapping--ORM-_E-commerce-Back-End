@@ -56,35 +56,42 @@ router.get('/:id', (req, res) => {
     });
 });
 
-// // create new product
-// router.post('/', (req, res) => {
-//   /* req.body should look like this...
-//     {
-//       product_name: "Basketball",
-//       price: 200.00,
-//       stock: 3,
-//       tagIds: [1, 2, 3, 4]
-//     }
-//   */
+// create new product
+/* req.body should look like this...
+  {
+    product_name: "Basketball",
+    price: 200.00,
+    stock: 3,
+    tagIds: [1, 2, 3, 4]
+  }
+*/
+router.post('/', (req, res) => {
+  // create a new product
+  Product.create(req.body)
+    .then((dbProductData) => {
+      res.json(dbProductData);
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+  console.log(`\n ++++++++++ new product added: ${req.body.product_name} ++++++++++ \n`);
+});
 
-//   // create new product
-//   // make sure to include its associated Tag data
-//   Product.create(req.body)
-
-// // update product
-// router.put('/:id', (req, res) => {
-//   product
-//     .update(req.body, {
-//       where: {
-//         id: req.params.id,
-//       },
-//     })
-//     .then((dbProductData) => res.json(dbProductData))
-//     .catch((err) => {
-//       console.log(err);
-//       res.status(500).json(err);
-//     });
-// });
+// update product
+router.put('/:id', (req, res) => {
+  product
+    .update(req.body, {
+      where: {
+        id: req.params.id,
+      },
+    })
+    .then((dbProductData) => res.json(dbProductData))
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
 
 router.delete('/:id', (req, res) => {
   // delete one product by its `id` value
