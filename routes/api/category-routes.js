@@ -45,6 +45,7 @@ router.post('/', (req, res) => {
       console.log(err);
       res.status(500).json(err);
     });
+  console.log(`\n ++++++++++ new category_name added: ${req.body.category_name} ++++++++++ \n`);
 });
 
 router.put('/:id', (req, res) => {
@@ -57,6 +58,7 @@ router.put('/:id', (req, res) => {
       console.log(err);
       res.status(500).json(err);
     });
+  console.log(`\n ^^^^^^^^^^ category_name updated: ${req.body.category_name} ^^^^^^^^^^ \n`);
 });
 
 router.delete('/:id', (req, res) => {
@@ -71,6 +73,7 @@ router.delete('/:id', (req, res) => {
       console.log(err);
       res.status(500).json(err);
     });
+  console.log(`\n ---------- category_id deleted: ${req.params.id} ---------- \n`);
 });
 
 module.exports = router;

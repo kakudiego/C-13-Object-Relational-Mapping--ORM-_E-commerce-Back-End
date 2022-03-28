@@ -55,6 +55,7 @@ router.post('/', (req, res) => {
       console.log(err);
       res.status(500).json(err);
     });
+  console.log(`\n ++++++++++ new tag added: ${req.body.tag_name} ++++++++++ \n`);
 });
 
 router.put('/:id', (req, res) => {
@@ -71,6 +72,7 @@ router.put('/:id', (req, res) => {
       console.log(err);
       res.status(500).json(err);
     });
+  console.log(`\n ^^^^^^^^^^ tag_name updated: ${req.body.tag_name} ^^^^^^^^^^ \n`);
 });
 
 router.delete('/:id', (req, res) => {
@@ -85,6 +87,7 @@ router.delete('/:id', (req, res) => {
       console.log(err);
       res.status(500).json(err);
     });
+  console.log(`\n ---------- tag_id deleted: ${req.params.id} ---------- \n`);
 });
 
 module.exports = router;
