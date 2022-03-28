@@ -53,7 +53,7 @@ If you have any questions, contact me at diegokaku@gmail.com.
 ## Walkthrough video
 
 The following images/video demonstrates the application functionality.
-https://drive.google.com/file/d/1M28pr3SWp_CjJGLdcS1PcnYTNThyBT2M/view
+<iframe src="https://drive.google.com/file/d/1M28pr3SWp_CjJGLdcS1PcnYTNThyBT2M/preview" width="640" height="480"></iframe>
 
 #### Seed and Running:
 ![seed-and-running](https://user-images.githubusercontent.com/94471049/160326191-ecca8015-6cfe-4bef-ac53-f0cb65cbd0e7.png)
