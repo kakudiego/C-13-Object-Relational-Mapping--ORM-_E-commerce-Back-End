@@ -80,13 +80,14 @@ router.post('/', (req, res) => {
 
 // update product
 router.put('/:id', (req, res) => {
-  product
-    .update(req.body, {
-      where: {
-        id: req.params.id,
-      },
+  Product.update(req.body, {
+    where: {
+      id: req.params.id,
+    },
+  })
+    .then((dbProductData) => {
+      res.json(dbProductData);
     })
-    .then((dbProductData) => res.json(dbProductData))
     .catch((err) => {
       console.log(err);
       res.status(500).json(err);
@@ -110,3 +111,5 @@ router.delete('/:id', (req, res) => {
 });
 
 module.exports = router;
+
+// done
