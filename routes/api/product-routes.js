@@ -91,6 +91,7 @@ router.put('/:id', (req, res) => {
       console.log(err);
       res.status(500).json(err);
     });
+  console.log(`\n ^^^^^^^^^^ product updated: ${req.body.product_name} ^^^^^^^^^^ \n`);
 });
 
 router.delete('/:id', (req, res) => {
@@ -105,6 +106,7 @@ router.delete('/:id', (req, res) => {
       console.log(err);
       res.status(500).json(err);
     });
+  console.log(`\n ^^^^^^^^^^ product deleted: ${req.body.product_name} ^^^^^^^^^^ \n`);
 });
 
 module.exports = router;
