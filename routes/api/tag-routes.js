@@ -4,21 +4,14 @@ const { Tag, Product, ProductTag } = require('../../models');
 // The `/api/tags` endpoint
 
 router.get('/', (req, res) => {
-  // find all tags
-  // be sure to include its associated Product data
   Tag.findAll({
-    include: [
-      {
-        model: Product,
-      },
-    ],
+    include: {
+      model: Product,
+      attributes: ['id', 'product_name', 'price', 'stock'],
+      as: 'products',
+    },
   })
-    .then((dbTagData) => {
-      // serialize the data
-      const tags = dbTagData.map((tag) => tag.get({ plain: true }));
-      // return it to the user
-      res.json(tags);
-    })
+    .then((dbTagData) => res.json(dbTagData))
     .catch((err) => {
       console.log(err);
       res.status(500).json(err);
@@ -35,6 +28,8 @@ router.get('/:id', (req, res) => {
     include: [
       {
         model: Product,
+        attributes: ['id', 'product_name', 'price', 'stock'],
+        as: 'products',
       },
     ],
   })
@@ -52,14 +47,9 @@ router.get('/:id', (req, res) => {
 
 router.post('/', (req, res) => {
   // create a new tag
-  Tag.create({
-    name: req.body.name,
-  })
+  Tag.create(req.body)
     .then((dbTagData) => {
-      // serialize the data
-      const tag = dbTagData.get({ plain: true });
-      // return it to the user
-      res.json(tag);
+      res.json(dbTagData);
     })
     .catch((err) => {
       console.log(err);
@@ -69,21 +59,13 @@ router.post('/', (req, res) => {
 
 router.put('/:id', (req, res) => {
   // update a tag's name by its `id` value
-  Tag.update(
-    {
-      name: req.body.name,
+  Tag.update(req.body, {
+    where: {
+      id: req.params.id,
     },
-    {
-      where: {
-        id: req.params.id,
-      },
-    }
-  )
+  })
     .then((dbTagData) => {
-      // serialize the data
-      const tag = dbTagData[1].get({ plain: true });
-      // return it to the user
-      res.json(tag);
+      res.json(dbTagData);
     })
     .catch((err) => {
       console.log(err);
