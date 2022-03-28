@@ -3,7 +3,7 @@
 [![badge](https://img.shields.io/badge/license-MIT-orange)](https://opensource.org/licenses/MIT)
 ![badge](https://img.shields.io/badge/Made%20with-Node-blue)
 ![badge](https://img.shields.io/badge/Made%20with-JavaScript-green)
-![badge](https://img.shields.io/badge/Made%20with-MySQL-yellow)
+
 
 ## Description
 
